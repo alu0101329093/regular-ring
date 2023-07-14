@@ -42,9 +42,9 @@ export const tailwindConfig = {
 };
 
 export const organizationInfo = {
-  pageTitle: "regular-ring",
+  pageTitle: "ULL-ESIT-PL-2122",
   github: {
-    organizationName: "",
+    organizationName: "ULL-ESIT-PL-2122",
     classroomUrl: "",
   },
   virtualCampus: {
