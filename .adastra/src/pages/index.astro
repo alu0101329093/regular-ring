@@ -1,0 +1,9 @@
+---
+import { getNavigation } from "adastra-ui";
+const navigation = await getNavigation();
+---
+
+<meta
+  http-equiv="refresh"
+  content={`0;url=${navigation[0].sections[0].entries[0].slug}`}
+/>

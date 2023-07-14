@@ -1,0 +1,69 @@
+---
+import { Content } from "~/content/docs/en/getting-started.md";
+import SidebarToggle from "./SidebarToggle";
+import { ThemeToggleButton } from "adastra-ui";
+import { organizationInfo } from "../../../../adastra.config.mjs";
+
+const { pageTitle } = organizationInfo;
+
+export interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+---
+
+<header
+  class="fixed left-0 top-0 right-0 h-navbar-height z-20 py-8 px-0 flex items-center justify-start overflow-hidden md:pt-10 md:px-0 md:pb-6"
+>
+  <nav
+    class="flex items-center justify-center gap-3 w-full px-min md:px-min-md"
+  >
+    <div
+      lang="es"
+      class="flex ltr:justify-start rlt:justify-end text-base leading-none grow shrink-0 font-semibold text-text dark:text-dark-text no-underline gap-2"
+    >
+      <h1
+        class="text-title sm:text-title-sm md:text-title-md font-bold from-primary dark:from-dark-primary to-secondary dark:to-dark-secondary bg-gradient-to-tr text-black dark:text-white rounded-lg p-2"
+      >
+        {pageTitle}
+      </h1>
+    </div>
+    <ThemeToggleButton isInsideHeader client:idle />
+    <SidebarToggle client:idle />
+  </nav>
+</header>
+
+<style>
+  @media (min-width: 20em) {
+    .docs {
+      display: inherit;
+      @apply max-w-[80px];
+    }
+  }
+
+  @media (min-width: 23.5em) {
+    .docs {
+      @apply max-w-none;
+    }
+
+    nav {
+      @apply gap-4;
+    }
+  }
+
+  div a:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  div h1 {
+    font: inherit;
+    color: inherit;
+    margin: 0;
+  }
+
+  .ul-wrapper {
+    all: inherit;
+    flex-grow: 0;
+  }
+</style>
